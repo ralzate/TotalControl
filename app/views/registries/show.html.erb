@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Entrance temperature:</strong>
+  <%= @registry.entrance_temperature %>
+</p>
+
+<p>
+  <strong>Departure temperature:</strong>
+  <%= @registry.departure_temperature %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @registry.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_registry_path(@registry) %> |
+<%= link_to 'Back', registries_path %>

@@ -1,0 +1,27 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: tal_control_development
+  pool: 5
+  username: postgres
+  password: alejoalzate
+  host: localhost
+
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: tal_control_test
+  pool: 5
+  username: postgres 
+  password: alejoalzate
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: tal_control_production
+  pool: 5
+  username: postgres
+  password: alejoalzate
+  host: localhost

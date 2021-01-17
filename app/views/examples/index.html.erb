@@ -1,0 +1,39 @@
+<% content_for :breadcrumb do %>
+  <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+  <li class="breadcrumb-item active">Examples</li>
+<% end %>
+
+<% if can? :manage, User %>
+	<p>Visible only for superadmins and supervisors! </p>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to('Edit registration', edit_user_registration_path) %>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+<% else %>
+  <%= link_to('Register', new_user_registration_path)  %>
+  <%= link_to('Login', new_user_session_path)  %>  
+<% end %>
+
+<div class="app-example-overview bg-light py-5">
+  <div class="container">
+    <div class="row">
+
+      <% Examples::BaseController::TYPES.each do |type| %>
+        <div class="col-md-4">
+          <div class="card box-shadow mb-4">
+            <%= link_to [:new, :examples, type] do %>
+              <%= image_tag "#{type}.png", class: "card-img-top" %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= t(".#{type}.title") %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= t(".#{type}.subtitle") %></h6>
+              <%= link_to t(".#{type}.link"), [:new, :examples, type], class: "btn btn-outline-primary mt-2" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
