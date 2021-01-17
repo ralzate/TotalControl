@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'home#index'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
@@ -20,5 +21,4 @@ Rails.application.routes.draw do
     resource :inline,           only: [:new, :create]
   end
 
-  root to: 'registries#index'
 end

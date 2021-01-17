@@ -9,7 +9,7 @@ class Ability
       can :manage, :all
     end
     if user.supervisor_role?
-      can :manage, Registry
+      can :access, Registry
     end
 
   end
