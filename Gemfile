@@ -68,6 +68,9 @@ gem 'simple_form', '~> 5.0'
 gem 'validates_timeliness', '~> 4.1'
 gem 'devise'
 gem 'cancancan'
+gem 'will_paginate-bootstrap'
+gem 'faker'
+gem 'populator'
 
 group :test, :development do
   gem 'diffy'

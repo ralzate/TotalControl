@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2021_01_17_192033) do
     t.string "name"
     t.string "lastname"
     t.string "phone"
-    t.string "mail"
     t.string "address"
     t.string "identification"
     t.string "company"
