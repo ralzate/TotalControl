@@ -8,9 +8,7 @@ class Ability
     if user.superadmin_role?
       can :manage, :all
     end
-    if user.supervisor_role?
-      can :access, Registry
-    end
+
 
   end
 end

@@ -1,20 +1,19 @@
 class UsersController < ApplicationController
-  #before_action :set_user, only: [:index, :create, :show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show,:edit, :update]
   #before_action :authenticate_user! 
   #authorize_resource
 
   def index
     @users = User.all
     @users = User.paginate(page: params[:page], per_page: 10)
-    
+
+
     if params[:search].present?
       @search_term = params[:search]
       @users = @users.search_by(@search_term)
       if @users.size.zero?
         redirect_to new_user_path
       end
-    else
-      redirect_to new_user_path
     end
   end
 

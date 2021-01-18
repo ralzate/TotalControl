@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'home#index'
 
+  resources :users do
+    resources :registries
+  end
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -8,9 +11,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :users do
-    resources :registries
-  end
 
 
 
