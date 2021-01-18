@@ -26,6 +26,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td><%= link_to  'Registros(' + user.registries.count.to_s + ')', user_registries_path(user) %></td>
         <td><%= user.name %></td>
         <td><%= user.lastname %></td>
         <td><%= user.phone %></td>

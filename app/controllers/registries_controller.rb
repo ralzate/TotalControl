@@ -1,10 +1,11 @@
 class RegistriesController < ApplicationController
-  before_action :set_registry, only: [:show, :edit, :update, :destroy]
+  before_action :set_registry, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  #before_action :authenticate_user! 
 
-  before_action :authenticate_user! 
+
 
   def index
-    @registries = Registry.all
+    @registries = @user.registries.all
   end
 
   def show
@@ -19,10 +20,11 @@ class RegistriesController < ApplicationController
 
   def create
     @registry = Registry.new(registry_params)
+    @registry.user_id = @user.id
 
     respond_to do |format|
       if @registry.save
-        format.html { redirect_to @registry, notice: 'Registry was successfully created.' }
+        format.html { redirect_to user_registries_path(@user,@registry), notice: 'Registro was successfully created.' }
         format.json { render :show, status: :created, location: @registry }
       else
         format.html { render :new }
@@ -34,7 +36,7 @@ class RegistriesController < ApplicationController
   def update
     respond_to do |format|
       if @registry.update(registry_params)
-        format.html { redirect_to @registry, notice: 'Registry was successfully updated.' }
+        format.html { redirect_to user_registries_path(@user,@registry), notice: 'Registro was successfully created.' }
         format.json { render :show, status: :ok, location: @registry }
       else
         format.html { render :edit }
@@ -53,9 +55,11 @@ class RegistriesController < ApplicationController
   end
 
   private
+
     def set_registry
-      @registry = Registry.find(params[:id])
-    end
+      @user = User.find(params[:user_id])
+      @registry = Registry.find(params[:id]) if params[:id]    
+   end
 
     def registry_params
       params.require(:registry).permit(:entrance_temperature, :departure_temperature, :user_id)

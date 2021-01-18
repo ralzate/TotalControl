@@ -18,9 +18,9 @@
         <td><%= registry.entrance_temperature %></td>
         <td><%= registry.departure_temperature %></td>
         <td><%= registry.user_id %></td>
-        <td><%= link_to 'Show', registry %></td>
-        <td><%= link_to 'Edit', edit_registry_path(registry) %></td>
-        <td><%= link_to 'Destroy', registry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_registry_path(@user,registry) %></td>
+        <td><%= link_to 'Edit', edit_user_registry_path(@user,registry) %></td>
+        <td><%= link_to 'Destroy', user_registry_path(@user,registry), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Registry', new_registry_path %>
+<%= link_to 'New Registry', new_user_registry_path(@user) %>

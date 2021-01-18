@@ -17,3 +17,9 @@ $theme-colors: ( "bootstrap": #563d7c, "simpleform": #00617f );
 
 // simple_form helpers
 @import "simple_form-bootstrap/simple_form-bootstrap";
+
+// Oculto el campo de user id en el esclavo
+label[for=registry_user_id]
+{
+    display: none;
+}
