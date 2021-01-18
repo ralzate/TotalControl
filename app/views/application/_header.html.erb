@@ -1,23 +1,33 @@
 <div class="app-header">
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <%= link_to "Simple Form & Bootstrap", root_path, class: "navbar-brand" %>
+      <%= link_to "Inicio", root_path, class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbar-header">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbar-example" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Examples
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbar-example">
-              <div class="dropdown-divider"></div>
+        <li class="nav-item active">
+          <%= link_to('Usuarios', users_path , class: "nav-link") %>
+        </li>
 
-            </div>
+          <li class="nav-item dropdown">
+             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Opciones
+              </a>
+              
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <% if user_signed_in? %>
+                  <%= link_to('Edit registration', edit_user_registration_path) %><br>
+                  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+
+                <% else %>
+                  <%= link_to('Register', new_user_registration_path)  %><br>
+                  <%= link_to('Login', new_user_session_path)  %> 
+                <% end %>
+              </div>  
           </li>
-          <%= content_tag(:li, link_to("Documentation", documentation_path, class: "nav-link"), class: "nav-item #{is_active?(documentation_path)}") %>
         </ul>
       </div>
     </div>
