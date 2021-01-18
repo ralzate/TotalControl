@@ -1,13 +1,17 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   before_action :authenticate_user! 
   authorize_resource
-
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
     @users = User.paginate(page: params[:page], per_page: 10)
-
+    
+    if params[:search]
+      @search_term = params[:search]
+      @users = @users.search_by(@search_term)
+    end
   end
 
   def show
@@ -60,6 +64,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :lastname, :phone, :mail, :address, :identification, :company)
+      params.require(:user).permit(:name, :lastname, :phone, :email, :address, :identification, :company)
     end
 end

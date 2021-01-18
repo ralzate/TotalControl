@@ -2,6 +2,13 @@
 
 <h1>Users</h1>
 
+
+    <%= form_tag users_path, method: :get do %>
+      <%= text_field_tag :search, @search_term %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+
+
 <table>
   <thead>
     <tr>
@@ -35,5 +42,6 @@
 </table>
 
 <br>
+              <%= will_paginate @users, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente&raquo;' %>
 
 <%= link_to 'New User', new_user_path %>
