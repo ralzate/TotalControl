@@ -84,6 +84,7 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
+    coderay (1.1.3)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
     devise (4.7.3)
@@ -133,6 +134,7 @@ GEM
     mini_portile2 (2.5.0)
     minitest (5.14.3)
     msgpack (1.3.3)
+    nested_form (0.3.2)
     nio4r (2.5.4)
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
@@ -141,6 +143,11 @@ GEM
     pg (1.2.3)
     popper_js (1.16.0)
     populator (1.0.0)
+    pry (0.13.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (4.0.6)
     puma (5.1.1)
       nio4r (~> 2.0)
@@ -180,10 +187,6 @@ GEM
       rake (>= 0.8.7)
       thor (~> 1.0)
     rake (13.0.3)
-    ransack (2.4.1)
-      activerecord (>= 5.2.4)
-      activesupport (>= 5.2.4)
-      i18n
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -268,13 +271,14 @@ DEPENDENCIES
   kramdown (~> 2.3)
   kramdown-parser-gfm (~> 1.1)
   listen (~> 3.4)
+  nested_form
   pg
   populator
+  pry-rails
   puma (~> 5.1)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.1)
   rails-i18n (~> 6.0)
-  ransack
   rouge (~> 3.26)
   sass-rails (>= 6)
   selenium-webdriver

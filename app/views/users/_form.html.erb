@@ -1,16 +1,22 @@
 
-<%= simple_form_for(@user) do |f| %>
-  <%= f.error_notification %>
+<%= nested_form_for @user do |f| %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :lastname %>
-    <%= f.input :phone %>
-    <%= f.input :email %>
-    <%= f.input :address %>
-    <%= f.input :identification %>
-    <%= f.input :company %>
+    <%= f.text_field :name %>
+    <%= f.text_field :lastname %>
+    <%= f.text_field :phone %>
+    <%= f.text_field :email %>
+    <%= f.text_field :address %>
+    <%= f.text_field :identification %>
+    <%= f.text_field :company %>
+
   </div>
+<%= f.fields_for :registries do |task_form| %>
+  <%= task_form.text_field :entrance_temperature %>
+  <%= task_form.text_field :departure_temperature %>
+<% end %>
+
+
+
 
 
   <div class="form-actions">

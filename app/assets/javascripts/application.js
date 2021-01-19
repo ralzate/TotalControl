@@ -15,6 +15,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require jquery_nested_form
 
 // custom
 //= require bootstrap_static_form_validation

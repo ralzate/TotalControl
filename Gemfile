@@ -71,11 +71,13 @@ gem 'cancancan'
 gem 'will_paginate-bootstrap'
 gem 'faker'
 gem 'populator'
+gem "nested_form"
 
 group :test, :development do
   gem 'diffy'
   gem 'equivalent-xml'
   gem 'pg'
+  gem 'pry-rails'
 end
 
 group :production do
