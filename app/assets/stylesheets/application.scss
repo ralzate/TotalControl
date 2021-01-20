@@ -1,5 +1,6 @@
 $theme-colors: ( "bootstrap": #563d7c, "simpleform": #00617f );
 @import "bootstrap";
+@import "font-awesome";
 
 // App sections
 @import "application/breadcrumb";
@@ -23,7 +24,10 @@ label[for=registry_user_id]
 {
     display: none;
 }
-.carouselHome{
-        margin-top: -60px;
-
+.opciones_usuario{
+    margin-right: 30px;
+}
+.fa-home{
+    color:#ffffff;
+    font-size:20px;
 }

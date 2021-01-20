@@ -10,27 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_17_192033) do
+ActiveRecord::Schema.define(version: 2021_01_20_155743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "registries", force: :cascade do |t|
-    t.decimal "entrance_temperature"
-    t.decimal "departure_temperature"
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.string "lastname"
+    t.integer "phone"
+    t.string "email"
+    t.string "address"
+    t.string "identification"
+    t.string "company"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_registries_on_user_id"
+    t.index ["user_id"], name: "index_people_on_user_id"
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.decimal "entrance_temperature"
+    t.decimal "departure_temperature"
+    t.bigint "person_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["person_id"], name: "index_records_on_person_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "lastname"
-    t.string "phone"
-    t.string "address"
-    t.string "identification"
-    t.string "company"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
@@ -38,12 +47,11 @@ ActiveRecord::Schema.define(version: 2021_01_17_192033) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean "superadmin_role", default: false
-    t.boolean "supervisor_role", default: false
-    t.boolean "user_role", default: true
+    t.integer "user_role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "registries", "users"
+  add_foreign_key "people", "users"
+  add_foreign_key "records", "people"
 end

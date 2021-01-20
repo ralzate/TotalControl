@@ -22,7 +22,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @user.registries.build # Metodo para nested
   end
 
   def edit
@@ -70,8 +69,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :name, :lastname, :phone, :email, :address, :identification, 
-      :company, registries_attributes: [:id, :entrance_temperature, :departure_temperature, :_destroy]
+      :name, :email, :password, :password_confirmation, :user_role
     )
   end
 end

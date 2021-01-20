@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resources :users do
-    resources :registries
+  resources :users, :path => 'usuarios_registrados' 
+
+  resources :people, :path => 'personas' do
+    resources :records, :path => 'registros'
   end
 
   devise_for :users, controllers: {
@@ -11,10 +13,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-
-
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get 'documentation', to: 'documentation#index'
 

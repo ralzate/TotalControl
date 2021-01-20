@@ -3,9 +3,9 @@
 one:
   entrance_temperature: 9.99
   departure_temperature: 9.99
-  user: one
+  person: one
 
 two:
   entrance_temperature: 9.99
   departure_temperature: 9.99
-  user: two
+  person: two

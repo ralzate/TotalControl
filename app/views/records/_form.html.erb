@@ -1,0 +1,13 @@
+
+<%= simple_form_for [@person,@record], :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :entrance_temperature %>
+    <%= f.input :departure_temperature %>
+    <%= f.association :person, selected: @person.id, input_html: { hidden: true }  %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

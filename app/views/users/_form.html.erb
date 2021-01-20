@@ -1,25 +1,32 @@
 
-<%= nested_form_for @user do |f| %>
+<%= simple_form_for @user do |f| %>
+  <%= f.error_notification %>
 
-    <%= f.text_field :name %>
-    <%= f.text_field :lastname %>
-    <%= f.text_field :phone %>
-    <%= f.text_field :email %>
-    <%= f.text_field :address %>
-    <%= f.text_field :identification %>
-    <%= f.text_field :company %>
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :name, required: true %>
+    <%= f.input :user_role, required: true %>
 
+
+    <%= f.input :password,
+                hint: "leave it blank if you don't want to change it",
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :current_password,
+                hint: "we need your current password to confirm your changes",
+                required: true,
+                input_html: { autocomplete: "current-password" } %>
   </div>
-<%= f.fields_for :registries do |task_form| %>
-  <%= task_form.text_field :entrance_temperature %>
-  <%= task_form.text_field :departure_temperature %>
-<% end %>
-
-
-
-
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Update" %>
   </div>
 <% end %>
+
+<h3>Cancel my account</h3>
+
+
+<%= link_to "Back", :back %>

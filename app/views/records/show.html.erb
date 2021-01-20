@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Entrance temperature:</strong>
+  <%= @record.entrance_temperature %>
+</p>
+
+<p>
+  <strong>Departure temperature:</strong>
+  <%= @record.departure_temperature %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @record.person_id %>
+</p>
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>

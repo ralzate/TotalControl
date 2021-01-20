@@ -42,6 +42,8 @@ group :development do
   gem 'listen', '~> 3.4'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
+
 end
 
 group :test do
@@ -72,6 +74,7 @@ gem 'will_paginate-bootstrap'
 gem 'faker'
 gem 'populator'
 gem "nested_form"
+gem "font-awesome-rails"
 
 group :test, :development do
   gem 'diffy'
