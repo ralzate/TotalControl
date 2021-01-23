@@ -1,9 +1,10 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user! 
 
   def index
     @people = Person.all
-    @people = Person.paginate(page: params[:page], per_page: 10)
+    @people = Person.paginate(page: params[:page], per_page: 3)
 
 
     if params[:search].present?

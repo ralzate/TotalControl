@@ -2,10 +2,10 @@
 
 
 
-<p id="notice"><%= notice %></p>
+
 
 <div class="card">
-  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Registro del la persona</h3>
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Registros del <%= @person.name %></h3>
   <div class="card-body">
     <div id="table" class="table-editable">
       <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
@@ -15,6 +15,7 @@
       <table class="table table-bordered table-responsive-md table-striped text-center">
         <thead>
           <tr>
+            <th>Id</th>
             <th>Temperatura Ingreso</th>
             <th>Temperatura Salida</th>
             <th>Persona que registro</th>
@@ -24,21 +25,34 @@
         </thead>
         <tbody>
           <% @records.each do |record| %>
+
             <tr>
-              <td><%= record.entrance_temperature %></td>
+              <td><%= record.id %></td>
+              <td class="entrada"><%= record.entrance_temperature %></td>
               <td><%= record.departure_temperature %></td>
               <td><%= record.person.email %></td>
               <td><%= record.created_at.strftime("%d-%m-%Y %H:%M") %></td>
-              <td><%= link_to 'Mostrar',  person_record_path(@person,record), :class => "btn btn-info" %></td>
-              <td><%= link_to 'Editar',  edit_person_record_path(@person,record), :class => "btn btn-success" %></td>
-              <td><%= link_to 'Eliminar', person_record_path(@person,record), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
+              <td><%= link_to 'Mostrar',  person_record_path(@person,record), :class => "btn btn-info btn-sm" %></td>
+              <td><%= link_to 'Editar',  edit_person_record_path(@person,record), :class => "btn btn-success btn-sm" %></td>
+              <td><%= link_to 'Eliminar', person_record_path(@person,record), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
     </div>
   </div>
+  <div class="paginacion">
+    <%= will_paginate @records, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  </div>
 </div>
 
-<%= link_to 'Nuevo Registro', new_person_record_path(@person) %>
-<%= link_to 'Atras', people_path %>
+<%= link_to 'Nuevo Registro', new_person_record_path(@person), :class => "btn btn-primary" %>
+<%= link_to 'Atras', people_path, :class => "btn btn-secondary" %>
+
+
+
+<%= link_to 'New Person', new_person_path %>
+
+
+
+

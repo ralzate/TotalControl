@@ -1,11 +1,18 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: [:index, :new, :create, :show, :edit, :update, :destroy]
-  #before_action :authenticate_user! 
+  before_action :authenticate_user! 
 
 
 
   def index
     @records = @person.records.all
+    @records = Record.paginate(page: params[:page], per_page: 10)
+
+
+    if params[:search].present?
+      @search_term = params[:search]
+      @records = @records.search_by(@search_term)
+    end
   end
 
   def show

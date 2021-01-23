@@ -20,7 +20,8 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <% if user_signed_in? %>
             <%= link_to('Editar', edit_user_registration_path, :class => "dropdown-item") %>
-            <%= link_to('Salir', destroy_user_session_path, :method => :delete, :class => "dropdown-item") %>
+          <%= link_to("Salir", destroy_user_session_path, :confirm => "Are you sure?", :class => "dropdown-item") %>
+
           <% else %>
             <%= link_to('Registrar', new_user_registration_path, :class => "dropdown-item")  %>
             <%= link_to('Ingresar', new_user_session_path, :class => "dropdown-item")  %> 

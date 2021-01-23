@@ -70,11 +70,15 @@ gem 'simple_form', '~> 5.0'
 gem 'validates_timeliness', '~> 4.1'
 gem 'devise'
 gem 'cancancan'
-gem 'will_paginate-bootstrap'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap4'
 gem 'faker'
 gem 'populator'
 gem "nested_form"
 gem "font-awesome-rails"
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+gem 'jquery-ui-rails'
 
 group :test, :development do
   gem 'diffy'

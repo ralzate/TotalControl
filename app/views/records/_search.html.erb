@@ -6,7 +6,19 @@
                     BUSCADOR
                 </div>
                 <div class="card-body px-lg-5 pt-4">
-
+                    <%= form_tag person_records_path(@person), method: :get do %>
+                        <div class="form-row">
+                            <div class="col-md-12 col-lg-10">
+                                <div class="md-form">
+                                    <%= text_field_tag :search, @search_term, class: "form-control", autocomplete: 'off',
+                                    id: "datepicker" %>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-2">
+                            <%= submit_tag "Buscar", class: "form-control" %>
+                            </div>
+                        </div>
+                    <% end %>
                 </div>
             </div>
         </div>
