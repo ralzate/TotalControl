@@ -45,14 +45,15 @@
 
         </tbody>
       </table>
-
+    <div class="btn-group demoPadder" role="group" aria-label="Basic example">
+      <%= link_to 'Nueva persona', new_person_path(@person), :class => "btn btn-primary" %>
+      <%= link_to 'Atras', root_path, :class => "btn btn-secondary" %>
     </div>
-
+    </div>
   </div>
   <div class="paginacion">
     <%= will_paginate @people, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
   </div>
-
 </div>
 
 

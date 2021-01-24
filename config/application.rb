@@ -9,9 +9,10 @@ Bundler.require(*Rails.groups)
 module SimpleFormBootstrap
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.i18n.default_locale = :es
+    config.i18n.default_locale = :es # Cambio a español
     config.load_defaults 6.1
-
+    # añado la ruta de pdfs al path
+    paths['app/views'] << 'app/pdfs'
 
     # Configuration for the application, engines, and railties goes here.
     #

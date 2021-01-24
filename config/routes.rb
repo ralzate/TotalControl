@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reports/index'
   root 'home#index'
 
   resources :users, :path => 'usuarios_registrados' 
@@ -15,7 +16,11 @@ Rails.application.routes.draw do
 
 
 
+  get 'reportes', to: 'reports#index'
+  get 'reporte_usuarios', to: 'reports#users_pdf'
+  get 'reporte_personas', to: 'reports#people_pdf'
+  get 'reporte_registros', to: 'reports#records_pdf'
+
   get 'documentation', to: 'documentation#index'
 
-  
 end

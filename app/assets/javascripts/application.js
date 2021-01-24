@@ -17,7 +17,8 @@
 //= require bootstrap-datepicker
 //= require jquery-ui
 //= require jquery-ui/widgets/datepicker
-
+//= require chartkick
+//= require Chart.bundle
 
 
 // Js para el datepicker

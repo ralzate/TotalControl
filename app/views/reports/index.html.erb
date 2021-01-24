@@ -1,0 +1,25 @@
+<h1>Reports#index</h1>
+<p>Find me in app/views/reports/index.html.erb</p>
+
+<h2>Registros</h2>
+<!-- Registros por dia,mes -->
+<p>Por dia</p><%= pie_chart Record.group_by_day(:created_at).count  %>
+<p>Por mes</p><%= pie_chart Record.group_by_month(:created_at).count  %>
+
+<h2>Personas</h2>
+<!-- Personas por dia,mes -->
+<p>Por dia</p><%= pie_chart Person.group_by_day(:created_at).count  %>
+<p>Por mes</p><%= pie_chart Person.group_by_month(:created_at).count  %>
+
+<h2>Usuarios</h2>
+<!-- Usuarios por dia,mes -->
+<p>Por dia</p><%= pie_chart User.group_by_day(:created_at).count  %>
+<p>Por mes</p><%= pie_chart User.group_by_month(:created_at).count  %>
+
+
+
+<div class="btn-group demoPadder" role="group" aria-label="Basic example">
+    <%= link_to "Usuarios Pdf", reporte_usuarios_path(format: "pdf"), target: "_blank", :class => "btn btn-primary" %>
+    <%= link_to "Registros Pdf", reporte_registros_path(format: "pdf"), target: "_blank", :class => "btn btn-primary" %>
+    <%= link_to "Personas Pdf", reporte_personas_path(format: "pdf"), target: "_blank", :class => "btn btn-primary" %>
+</div>

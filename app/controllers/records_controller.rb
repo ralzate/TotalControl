@@ -5,8 +5,7 @@ class RecordsController < ApplicationController
 
 
   def index
-    @records = @person.records.all
-    @records = Record.paginate(page: params[:page], per_page: 10)
+    @records = @person.records.paginate(page: params[:page], per_page: 10)
 
 
     if params[:search].present?

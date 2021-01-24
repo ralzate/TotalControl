@@ -39,19 +39,17 @@
           <% end %>
         </tbody>
       </table>
+        
+    <div class="btn-group demoPadder" role="group" aria-label="Basic example">
+      <%= link_to 'Nuevo Registro', new_person_record_path(@person), :class => "btn btn-primary" %>
+      <%= link_to 'Atras', people_path, :class => "btn btn-secondary" %>
+    </div>
     </div>
   </div>
   <div class="paginacion">
     <%= will_paginate @records, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
   </div>
 </div>
-
-<%= link_to 'Nuevo Registro', new_person_record_path(@person), :class => "btn btn-primary" %>
-<%= link_to 'Atras', people_path, :class => "btn btn-secondary" %>
-
-
-
-<%= link_to 'New Person', new_person_path %>
 
 
 

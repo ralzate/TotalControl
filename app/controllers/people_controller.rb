@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
 
   def index
     @people = Person.all
-    @people = Person.paginate(page: params[:page], per_page: 3)
+    @people = Person.paginate(page: params[:page], per_page: 10)
 
 
     if params[:search].present?
@@ -61,6 +61,7 @@ class PeopleController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     def set_person

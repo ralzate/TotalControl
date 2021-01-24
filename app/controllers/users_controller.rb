@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
-  #before_action :set_user, only: [:show,:edit, :update, :destroy]
-  before_action :authenticate_user! 
+  before_action :set_user, only: [:show,:edit, :update, :destroy]
+  #before_action :authenticate_user! 
   #authorize_resource
 
   def index
     @users = User.all
-    @users = User.paginate(page: params[:page], per_page: 1)
+    @users = User.paginate(page: params[:page], per_page: 20)
 
 
     if params[:search].present?

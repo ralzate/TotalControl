@@ -72,19 +72,25 @@ gem 'devise'
 gem 'cancancan'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
-gem 'faker'
-gem 'populator'
 gem "nested_form"
 gem "font-awesome-rails"
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                               :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'jquery-ui-rails'
 
+gem "chartkick"
+gem 'groupdate'
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 group :test, :development do
   gem 'diffy'
   gem 'equivalent-xml'
   gem 'pg'
   gem 'pry-rails'
+  gem 'faker'
+  gem 'populator' 
 end
 
 group :production do

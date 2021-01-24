@@ -7,11 +7,11 @@ GIT
 
 GIT
   remote: https://github.com/ctran/annotate_models.git
-  revision: 111640d077836ced23cfffb882c93e40968ab9d9
+  revision: 7d211ddebb95154a30f1b056782dca9ee8e919bc
   specs:
-    annotate (2.7.5)
+    annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
-      rake (>= 10.4, < 13.0)
+      rake (>= 10.4, < 14.0)
 
 GEM
   remote: https://rubygems.org/
@@ -98,6 +98,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    chartkick (3.4.2)
     childprocess (3.0.0)
     coderay (1.1.3)
     concurrent-ruby (1.1.8)
@@ -120,12 +121,14 @@ GEM
       railties (>= 3.2, < 6.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    groupdate (5.2.1)
+      activesupport (>= 5)
     i18n (1.8.7)
       concurrent-ruby (~> 1.0)
     inline_svg (1.7.2)
       activesupport (>= 3.0)
       nokogiri (>= 1.6)
-    jbuilder (2.10.1)
+    jbuilder (2.11.1)
       activesupport (>= 5.0.0)
     jquery-rails (4.4.0)
       rails-dom-testing (>= 1, < 3)
@@ -150,13 +153,11 @@ GEM
     method_source (1.0.0)
     mimemagic (0.3.5)
     mini_mime (1.0.2)
-    mini_portile2 (2.5.0)
     minitest (5.14.3)
     msgpack (1.3.3)
     nested_form (0.3.2)
     nio4r (2.5.4)
-    nokogiri (1.11.1)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
@@ -205,7 +206,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (~> 1.0)
-    rake (12.3.3)
+    rake (13.0.3)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -240,7 +241,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    thor (1.0.1)
+    thor (1.1.0)
     tilt (2.0.10)
     timeliness (0.4.4)
     turbolinks (5.2.1)
@@ -264,15 +265,18 @@ GEM
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    wicked_pdf (2.1.0)
+      activesupport
     will_paginate (3.3.0)
     will_paginate-bootstrap4 (0.2.2)
       will_paginate (~> 3.0, >= 3.0.0)
+    wkhtmltopdf-binary (0.12.6.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.4.2)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
   annotate!
@@ -282,11 +286,13 @@ DEPENDENCIES
   byebug
   cancancan
   capybara (>= 3.26)
+  chartkick
   devise
   diffy
   equivalent-xml
   faker
   font-awesome-rails
+  groupdate
   inline_svg (~> 1.7)
   jbuilder (~> 2.10)
   jquery-rails
@@ -312,11 +318,13 @@ DEPENDENCIES
   validates_timeliness (~> 4.1)
   web-console (>= 4.1.0)
   webdrivers
+  wicked_pdf
   will_paginate
   will_paginate-bootstrap4
+  wkhtmltopdf-binary
 
 RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.1.4
+   2.2.6

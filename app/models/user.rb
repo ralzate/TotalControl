@@ -15,7 +15,6 @@
 #
 
 class User < ApplicationRecord
-  has_many :records
   has_many :people
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable  
