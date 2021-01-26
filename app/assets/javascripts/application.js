@@ -66,4 +66,9 @@ $(document).ready(function() {
 
         }      
     }); 
+
+
+    // Elimino los mensajes custom de validaciones
+    $( ".invalid-feedback" ).empty();
+    $(".invalid-feedback").text('Este campo no es valido');
 });

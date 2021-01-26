@@ -8,50 +8,84 @@
       <div class="form-row mb-0">
 
         <div class="col-md-4 mb-3 form-group">
-          <%= f.label :name, 'Nombre' %>
-          <%= f.input :name, label: false %>
+          <%= f.label :nombre, 'Nombre' %>
+          <%= f.input :name, label: false, :input_html => { :id => 'persona_nombre' } %>
           <div class="messages"></div>
         </div>
         <div class="col-md-4 mb-3 form-group">
           <%= f.label :lastname, 'Apellido' %>
-          <%= f.input :lastname, label: false %>
+          <%= f.input :lastname, label: false, :input_html => { :id => 'persona_apellido' } %>
           <div class="messages"></div>
         </div>
         <div class="col-md-4 mb-3 form-group">
           <%= f.label :phone, 'Telefono' %>
-          <%= f.input :phone, label: false %>
+          <%= f.input :phone, label: false , :input_html => { :id => 'persona_telefono' }%>
           <div class="messages"></div>
         </div>
 
       </div>
       <div class="form-row">
 
-        <div class="col-md-3 mb-3 form-group">
+        <div class="col-md-4 mb-3 form-group">
           <%= f.label :email, 'Email' %>
           <%= f.input :email, label: false %>
           <div class="messages"></div>
         </div>
-        <div class="col-md-3 mb-3 form-group">
+        <div class="col-md-4 mb-3 form-group">
           <%= f.label :address, 'Direccion' %>       
-          <%= f.input :address, label: false %>
+          <%= f.input :address, label: false, :input_html => { :id => 'persona_direccion' } %>
           <div class="messages"></div>
         </div>
-        <div class="col-md-3 mb-3 form-group">
+        <div class="col-md-4 mb-3 form-group">
           <%= f.label :identification, 'Identificacion' %>
-          <%= f.input :identification, label: false %>
+          <%= f.input :identification, label: false , :input_html => { :id => 'persona_identificacion' }%>
+          <div class="messages"></div>
+        </div>
+        
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 mb-3 form-group">
+          <%= f.label :rol, 'Rol' %>
+          <%= f.select :rol, options_for_select([ "Seleccion el rol de la persona","Empleado", "Visitante", "Contratista" ]), 
+            {}, { class: "form form-group form-control", id: "person_rol" }  %>
           <div class="messages"></div>
         </div>
         <div class="col-md-3 mb-3 form-group">
-          <%= f.label :company, 'Empresa' %>
-          <%= f.input :company, label: false %>
+          <%= f.label :company, 'Empresa',  class: "ocultame", id: "label_company" %>
+          <%= f.input :company, label: false, :input_html => { class: "ocultame", id: "persona_empresa"} %>
           <div class="messages"></div>
         </div>
       </div>
 
-
+      <!-- Enviar por defecto el usuario que registro a la persona -->
       <%= f.association :user, selected: current_user, input_html: { hidden: true }, label: false  %>
-      <%= f.button :submit, 'Guardar' %>
+
+      <%= f.button :submit, 'Guardar', :id => "persona_guardar"  %>
       <%= link_to 'Atras', people_path, :class => "btn btn-info" %>
 
     <% end %>
   </div>
+
+<script>
+$(document).ready(function(){
+    $("#person_rol").change(function(){
+        var selectedCountry = $("#person_rol option:selected").text();
+        if(selectedCountry == "Contratista" ){
+              $('#label_company').removeClass('ocultame');
+              $('#persona_empresa').removeClass('ocultame').val("");
+
+        }
+        else if(selectedCountry == "Visitante" ){
+              $('#label_company').addClass( "ocultame" )
+              $('#persona_empresa').addClass('ocultame').val("No aplica");
+
+        }
+        else if(selectedCountry == "Empleado" ){
+              $('#label_company').addClass('ocultame');
+              $('#persona_empresa').addClass('ocultame').val("Personal Propio");
+
+        }
+    });
+});
+</script>

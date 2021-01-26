@@ -21,5 +21,7 @@
 
     
     <%= yield %>
-    <%= render "footer" %>
+    <% unless user_signed_in? %>
+    <%= render "welcome" %>
+    <% end %>
 </html>

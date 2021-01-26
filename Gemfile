@@ -73,7 +73,7 @@ gem 'cancancan'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 gem "nested_form"
-gem "font-awesome-rails"
+gem "font-awesome-sass"
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                               :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'jquery-ui-rails'

@@ -1,21 +1,158 @@
-<h1>Reports#index</h1>
-<p>Find me in app/views/reports/index.html.erb</p>
+<div class="container my-2">
+   <div class="row">
+      <div class="col-lg-6 col-md-4 mb-12">
+         <div class="card card-cascade wider">
+            <div class="card-body card-body-cascade text-center">
+               <div class="alert alert-primary" role="alert">
+                  <h2 class="card-title"><strong>Registro por dia  </strong></h2>
+               </div>
+               <div class="container">
+               <div class="row">
+                  <div class="col-sm">
+                  <div class="alert alert-secondary" role="alert">
+                  <%= pie_chart Record.group_by_day(:created_at).count  %>
+                  </div>        
+                  </div>
+               </div>
+               </div>    
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-6 col-md-4 mb-12">
+         <div class="card card-cascade wider">
+            <div class="card-body card-body-cascade text-center">
+               <div class="alert alert-primary" role="alert">
+                  <h2 class="card-title"><strong>Registro al mes  </strong></h2>
+               </div>
+               <div class="container">
+               <div class="row">
+                  <div class="col-sm">
+                  <div class="alert alert-secondary" role="alert">
+                  <%= pie_chart Record.group_by_month(:created_at).count  %>
+                  </div>        
+                  </div>
+               </div>
+               </div>    
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
 
-<h2>Registros</h2>
-<!-- Registros por dia,mes -->
-<p>Por dia</p><%= pie_chart Record.group_by_day(:created_at).count  %>
-<p>Por mes</p><%= pie_chart Record.group_by_month(:created_at).count  %>
 
-<h2>Personas</h2>
-<!-- Personas por dia,mes -->
-<p>Por dia</p><%= pie_chart Person.group_by_day(:created_at).count  %>
-<p>Por mes</p><%= pie_chart Person.group_by_month(:created_at).count  %>
+<div class="container my-2">
+   <div class="row">
+      <div class="col-lg-6 col-md-4 mb-12">
+         <div class="card card-cascade wider">
+            <div class="card-body card-body-cascade text-center">
+               <div class="alert alert-primary" role="alert">
+                  <h2 class="card-title"><strong>Personas registradas por dia  </strong></h2>
+               </div>
+               <div class="container">
+               <div class="row">
+                  <div class="col-sm">
+                  <div class="alert alert-secondary" role="alert">
+                  <%= pie_chart Person.group_by_day(:created_at).count  %>
+                  </div>        
+                  </div>
+               </div>
+               </div>    
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-6 col-md-4 mb-12">
+         <div class="card card-cascade wider">
+            <div class="card-body card-body-cascade text-center">
+               <div class="alert alert-primary" role="alert">
+                  <h2 class="card-title"><strong>Registro de personas al mes  </strong></h2>
+               </div>
+               <div class="container">
+               <div class="row">
+                  <div class="col-sm">
+                  <div class="alert alert-secondary" role="alert">
+                  <%= pie_chart Person.group_by_month(:created_at).count  %>
+                  </div>        
+                  </div>
+               </div>
+               </div>    
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
 
-<h2>Usuarios</h2>
-<!-- Usuarios por dia,mes -->
-<p>Por dia</p><%= pie_chart User.group_by_day(:created_at).count  %>
-<p>Por mes</p><%= pie_chart User.group_by_month(:created_at).count  %>
+<div class="container my-2">
+   <div class="row">
+      <div class="col-lg-6 col-md-4 mb-12">
+         <div class="card card-cascade wider">
+            <div class="card-body card-body-cascade text-center">
+               <div class="alert alert-primary" role="alert">
+                  <h2 class="card-title"><strong>Usuarios registrados por dia  </strong></h2>
+               </div>
+               <div class="container">
+               <div class="row">
+                  <div class="col-sm">
+                  <div class="alert alert-secondary" role="alert">
+                  <%= pie_chart User.group_by_day(:created_at).count  %>
+                  </div>        
+                  </div>
+               </div>
+               </div>    
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-6 col-md-4 mb-12">
+         <div class="card card-cascade wider">
+            <div class="card-body card-body-cascade text-center">
+               <div class="alert alert-primary" role="alert">
+                  <h2 class="card-title"><strong>Usuarios registrados al mes  </strong></h2>
+               </div>
+               <div class="container">
+               <div class="row">
+                  <div class="col-sm">
+                  <div class="alert alert-secondary" role="alert">
+                  <%= pie_chart User.group_by_month(:created_at).count  %>
+                  </div>        
+                  </div>
+               </div>
+               </div>    
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
 
+
+
+
+<div class="container my-2">
+   <div class="row">
+      <div class="col-lg-6 col-md-4 mb-12">
+         <div class="card card-cascade wider">
+            <div class="card-body card-body-cascade text-center">
+               <div class="alert alert-danger" role="alert">
+                  <h2 class="card-title"><strong>Registros con fiebre  </strong></h2>
+               </div>
+               <div class="container">
+               <div class="row">
+                  <div class="col-sm">
+                  <div class="alert alert-secondary" role="alert">
+                  <%= pie_chart Record.group(:entrance_temperature).where("entrance_temperature > 38").count %>
+                  </div>        
+                  </div>
+               </div>
+               </div>    
+            </div>
+         </div>
+      </div>
+
+   </div>
+</div>
+
+
+
+
+<%= line_chart User.group_by_day(:created_at).count %>
 
 
 <div class="btn-group demoPadder" role="group" aria-label="Basic example">
