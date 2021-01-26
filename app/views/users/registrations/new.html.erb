@@ -5,30 +5,43 @@
       <div class="avatar"></div>
       <div class="form-box">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= f.error_notification %>
+          <% if f.error_notification %>
+            <div class="alert alert-warning" role="alert">
+              Por favor revisa
+            </div>
+          <% end %>
 
           <div class="form-inputs">
             <%= f.label :email, 'Email' %>
             <%= f.input :email,
                         required: true,
                         autofocus: true,
-                        input_html: { autocomplete: "email" }, label: false %>
+                        error: 'El email no es valido',
+                        label: false,
+                        input_html: { autocomplete: "email" } %>
             <%= f.label :name, 'Nombre' %>
             <%= f.input :name,
-                        required: true, label: false %>
+                        required: true, 
+                        error: 'El Nombre no es valido',
+                        label: false %>
             <%= f.label :password, 'Clave' %>
             <%= f.input :password,
                         required: true,
+                        error: 'La contraseña no es valida',
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { autocomplete: "new-password" }, label: false %>
             <%= f.label :password_confirmation, 'Confirmar clave' %>
             <%= f.input :password_confirmation,
                         required: true,
+                        error: 'La confirmación contraseña no es valida',
                         input_html: { autocomplete: "new-password" }, label: false %>
+            <%= f.label :user_role, 'Rol' %>
+            <%= f.select :user_role, options_for_select([ "SuperAdmin", "Admin" ]), 
+                {}, { class: "form form-group form-control" }  %>
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Sign up" %>
+            <%= f.button :submit, "Registrar" %>
           </div>
         <% end %>
       </div>

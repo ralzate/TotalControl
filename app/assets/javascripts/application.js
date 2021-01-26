@@ -69,6 +69,28 @@ $(document).ready(function() {
 
 
     // Elimino los mensajes custom de validaciones
-    $( ".invalid-feedback" ).empty();
-    $(".invalid-feedback").text('Este campo no es valido');
+    // $( ".invalid-feedback" ).empty();
+    // $(".invalid-feedback").text('Este campo no es valido');
+});
+
+
+
+// Cambia a disable si algun campo esta vacio en el form de personas
+$(document).ready(function() {
+    var $inputs = $('#persona_nombre'),
+        $inputs = $('#persona_apellido'),
+        $inputs = $('#persona_telefono'),
+        $inputs = $('#persona_direccion'),
+        $inputs = $('#persona_identificacion'),
+        $submit = $("#persona_guardar");
+
+    function checkEmpty() {
+        return $inputs.filter(function() {
+            return !$.trim(this.value);
+        }).length === 0;
+    }
+
+    $inputs.on('blur', function() {
+        $submit.prop("disabled", !checkEmpty());
+    }).blur();
 });

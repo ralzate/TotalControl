@@ -17,7 +17,19 @@
 class User < ApplicationRecord
   has_many :people
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable  
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+
+  validates_presence_of :name
+  validates_format_of :email,:with => Devise::email_regexp
+  validates :password, 
+            presence: true, 
+            length: {  minimum: 8, maximum: 20 }
+  validates :password_confirmation, 
+            presence: true, 
+            length: {  minimum: 8, maximum: 20 }
+  validates_presence_of :user_role
+
+
 
   def self.search_by(search_term)
     where(["(name) LIKE :search_term OR (email)   LIKE :search_term",

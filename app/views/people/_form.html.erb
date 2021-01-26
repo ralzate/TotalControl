@@ -4,51 +4,66 @@
 <div class="card mx-5 my-5 px-5 py-5">
     <h1 class="mb-3">Personas</h1>
     <%= simple_form_for(@person) do |f| %>
-      <%= f.error_notification %>
+      <% if f.error_notification %>
+        <div class="alert alert-warning" role="alert">
+          Por favor revisa
+        </div>
+      <% end %>
       <div class="form-row mb-0">
 
         <div class="col-md-4 mb-3 form-group">
           <%= f.label :nombre, 'Nombre' %>
-          <%= f.input :name, label: false, :input_html => { :id => 'persona_nombre' } %>
-          <div class="messages"></div>
+          <%= f.input :name, 
+                      label: false,
+                      required: true,
+                      error: 'El nombre no es valido', 
+                      :input_html => { :id => 'persona_nombre' } %>
         </div>
         <div class="col-md-4 mb-3 form-group">
           <%= f.label :lastname, 'Apellido' %>
-          <%= f.input :lastname, label: false, :input_html => { :id => 'persona_apellido' } %>
-          <div class="messages"></div>
+          <%= f.input :lastname, 
+                      label: false,
+                      required: true,
+                      error: 'El apellido no es valido', 
+                      :input_html => { :id => 'persona_apellido' } %>
         </div>
         <div class="col-md-4 mb-3 form-group">
           <%= f.label :phone, 'Telefono' %>
-          <%= f.input :phone, label: false , :input_html => { :id => 'persona_telefono' }%>
-          <div class="messages"></div>
+          <%= f.input :phone, 
+                      label: false,
+                      required: true,
+                      error: 'El telefono no es valido', 
+                      :input_html => { :id => 'persona_telefono' } %>
         </div>
-
       </div>
-      <div class="form-row">
 
+      <div class="form-row">
         <div class="col-md-4 mb-3 form-group">
           <%= f.label :email, 'Email' %>
           <%= f.input :email, label: false %>
-          <div class="messages"></div>
         </div>
         <div class="col-md-4 mb-3 form-group">
-          <%= f.label :address, 'Direccion' %>       
-          <%= f.input :address, label: false, :input_html => { :id => 'persona_direccion' } %>
-          <div class="messages"></div>
+          <%= f.label :address, 'Direccion' %>  
+          <%= f.input :address, 
+            label: false,
+            required: true,
+            error: 'La direccion no es valida', 
+            :input_html => { :id => 'persona_direccion' } %>
         </div>
         <div class="col-md-4 mb-3 form-group">
           <%= f.label :identification, 'Identificacion' %>
-          <%= f.input :identification, label: false , :input_html => { :id => 'persona_identificacion' }%>
-          <div class="messages"></div>
+          <%= f.input :identification, 
+            label: false,
+            required: true,
+            error: 'La identificacion no es valida' %>
         </div>
-        
       </div>
 
       <div class="row">
         <div class="col-md-3 mb-3 form-group">
           <%= f.label :rol, 'Rol' %>
           <%= f.select :rol, options_for_select([ "Seleccion el rol de la persona","Empleado", "Visitante", "Contratista" ]), 
-            {}, { class: "form form-group form-control", id: "person_rol" }  %>
+            {}, { class: "form form-group form-control", id: "person_rol", error: 'La identificacion no es valida' }  %>
           <div class="messages"></div>
         </div>
         <div class="col-md-3 mb-3 form-group">
