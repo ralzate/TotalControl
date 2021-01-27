@@ -36,4 +36,16 @@ class User < ApplicationRecord
     { search_term: "%#{search_term}%" }])
   end
 
+  require 'csv'
+  def self.to_csv(options = {})
+      CSV.generate(options) do |csv|
+          csv << ['id', 'Nombres', 'Emails', 'Rol', 'Creado en', 'Actualizado en'] 
+          all.each do |user|
+              csv << [user.id, user.name, user.email,  user.user_role, user.created_at, user.updated_at] 
+          end
+      end
+  end
+
+
+
 end
