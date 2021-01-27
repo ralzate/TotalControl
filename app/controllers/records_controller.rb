@@ -12,6 +12,7 @@ class RecordsController < ApplicationController
       @search_term = params[:search]
       @records = @records.search_by(@search_term)
     end
+    
   end
 
   def show

@@ -14,6 +14,24 @@ class PeopleController < ApplicationController
         redirect_to new_person_path
       end
     end
+
+    # Excel
+    @results2 = ActiveRecord::Base.connection.exec_query("SELECT id, name, lastname, phone, email, 
+                                                        address, identification, company, user_id, 
+                                                        created_at, updated_at from people")
+    
+    @results2.each do |row|
+      puts  row['name'].to_s + " " +  row['name'].to_s + " " + row['lastname'].to_s + " " + row['phone'].to_s+ " " + row['email'].to_s
+       + " " + row['address'].to_s+ " " + row['identification'].to_s + " " + row['company'].to_s+ " " + row['person.user.email'].to_s
+       + " " + row['created_at'].to_s+ " " + row['updated_at'].to_s
+    end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @people.to_csv }
+      format.xls 
+    end
+
   end
 
   def show

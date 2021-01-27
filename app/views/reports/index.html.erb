@@ -1,3 +1,24 @@
+<br/>
+<div class="d-flex justify-content-center">
+   <div class="btn-group demoPadder" role="group" aria-label="Basic example">
+      <%= link_to "Usuarios Pdf", reporte_usuarios_path(format: "pdf"), target: "_blank", :class => "btn btn-primary" %>
+      <%= link_to "Registros Pdf", reporte_registros_path(format: "pdf"), target: "_blank", :class => "btn btn-primary" %>
+      <%= link_to "Personas Pdf", reporte_personas_path(format: "pdf"), target: "_blank", :class => "btn btn-primary" %>
+   </div>
+</div>
+<br/>
+<p>
+  Download:
+  <%= link_to "CSV", users_path(format: "csv") %> |
+  <%= link_to "Excel", users_path(format: "xls") %>
+</p>
+<p>
+  Download:
+  <%= link_to "CSV", people_path(format: "csv") %> |
+  <%= link_to "Excel", people_path(format: "xls") %>
+</p>
+
+
 <div class="container my-2">
    <div class="row">
       <div class="col-lg-6 col-md-4 mb-12">
@@ -150,13 +171,3 @@
 </div>
 
 
-
-
-<%= line_chart User.group_by_day(:created_at).count %>
-
-
-<div class="btn-group demoPadder" role="group" aria-label="Basic example">
-    <%= link_to "Usuarios Pdf", reporte_usuarios_path(format: "pdf"), target: "_blank", :class => "btn btn-primary" %>
-    <%= link_to "Registros Pdf", reporte_registros_path(format: "pdf"), target: "_blank", :class => "btn btn-primary" %>
-    <%= link_to "Personas Pdf", reporte_personas_path(format: "pdf"), target: "_blank", :class => "btn btn-primary" %>
-</div>

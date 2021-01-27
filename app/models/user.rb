@@ -15,10 +15,13 @@
 #
 
 class User < ApplicationRecord
+  # Relaciones
   has_many :people
 
+  # Seguridad de devise
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
+  # Validaciones
   validates_presence_of :name
   validates_format_of :email,:with => Devise::email_regexp
   validates :password, 
@@ -30,12 +33,13 @@ class User < ApplicationRecord
   validates_presence_of :user_role
 
 
-
+  # Buscador
   def self.search_by(search_term)
     where(["(name) LIKE :search_term OR (email)   LIKE :search_term",
     { search_term: "%#{search_term}%" }])
   end
 
+  # Imprime en Csv
   require 'csv'
   def self.to_csv(options = {})
       CSV.generate(options) do |csv|
@@ -45,7 +49,6 @@ class User < ApplicationRecord
           end
       end
   end
-
 
 
 end

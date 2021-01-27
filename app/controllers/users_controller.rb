@@ -27,7 +27,6 @@ class UsersController < ApplicationController
       format.csv { send_data @users.to_csv }
       format.xls 
     end
-
   end
 
   def show
