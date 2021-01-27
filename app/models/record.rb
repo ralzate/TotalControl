@@ -18,4 +18,16 @@ class Record < ApplicationRecord
     where("Date(created_at) = :search_term", { search_term: "%#{search_term}%" })
   end
 
+  # Imprime en Csv
+  require 'csv'
+  def self.to_csv(options = {})
+      CSV.generate(options) do |csv|
+          csv << ['id', 'Persona', 'Temperatura de ingreso', 'Temperatura de salida', 'Creado en', 'Actualizado en'] 
+          all.each do |record|
+              csv << [record.id, record.person.email, record.entrance_temperature, record.departure_temperature, record.created_at, record.updated_at] 
+          end
+      end
+  end
+
+
 end

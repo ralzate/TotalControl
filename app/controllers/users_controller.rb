@@ -15,18 +15,6 @@ class UsersController < ApplicationController
         redirect_to new_user_path
       end
     end
-
-    @results = ActiveRecord::Base.connection.exec_query("SELECT name,email,user_role from users")
-    
-    @results.each do |row|
-      puts row['name'] + " " + row['email'] + " " + row['user_role'].to_s
-    end
-
-    respond_to do |format|
-      format.html
-      format.csv { send_data @users.to_csv }
-      format.xls 
-    end
   end
 
   def show
@@ -70,6 +58,15 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def print_users
+    @results = User.all
+        respond_to do |format|
+      format.html
+      format.csv { send_data User.to_csv }
+      format.xls 
     end
   end
 

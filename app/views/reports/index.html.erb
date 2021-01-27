@@ -9,14 +9,16 @@
 <br/>
 <p>
   Download:
-  <%= link_to "CSV", users_path(format: "csv") %> |
-  <%= link_to "Excel", users_path(format: "xls") %>
+  <%= link_to "CSV", print_users_path(format: "csv") %> |
+  <%= link_to "Excel", print_users_path(format: "xls") %>
 </p>
 <p>
   Download:
-  <%= link_to "CSV", people_path(format: "csv") %> |
-  <%= link_to "Excel", people_path(format: "xls") %>
+  <%= link_to "CSV", print_people_path(format: "csv") %> |
+  <%= link_to "Excel", print_people_path(format: "xls") %>
 </p>
+<td><%= link_to 'Mostrar',  print_records_path(format: "csv"), :class => "btn btn-info btn-sm" %></td>
+<td><%= link_to 'Mostrar',  print_records_path(format: "xls"), :class => "btn btn-info btn-sm" %></td>
 
 
 <div class="container my-2">

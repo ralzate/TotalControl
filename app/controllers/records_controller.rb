@@ -8,14 +8,17 @@ class RecordsController < ApplicationController
     @records = @person.records.paginate(page: params[:page], per_page: 10)
 
 
+    #  Buscador por fecha de registro
     if params[:search].present?
       @search_term = params[:search]
       @records = @records.search_by(@search_term)
     end
-    
+
+   
   end
 
   def show
+
   end
 
   def new
@@ -59,6 +62,15 @@ class RecordsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to person_records_path(@person), notice: 'record was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+
+  def print_records
+    @results3 = Record.all
+    respond_to do |format|
+      format.csv { send_data Record.to_csv }
+      format.xls 
     end
   end
 

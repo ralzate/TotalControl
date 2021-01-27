@@ -32,7 +32,8 @@
               <td><%= record.departure_temperature %></td>
               <td><%= record.person.email %></td>
               <td><%= record.created_at.strftime("%d-%m-%Y %H:%M") %></td>
-              <td><%= link_to 'Mostrar',  person_record_path(@person,record), :class => "btn btn-info btn-sm" %></td>
+
+             <td><%= link_to 'Mostrar',  person_record_path(@person,record), :class => "btn btn-info btn-sm" %></td>
               <td><%= link_to 'Editar',  edit_person_record_path(@person,record), :class => "btn btn-success btn-sm" %></td>
               <td><%= link_to 'Eliminar', person_record_path(@person,record), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %></td>
             </tr>
@@ -50,7 +51,6 @@
     <%= will_paginate @records, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
   </div>
 </div>
-
 
 
 
