@@ -25,6 +25,13 @@ $theme-colors: ( "bootstrap": #563d7c, "simpleform": #00617f );
 // simple_form helpers
 @import "simple_form-bootstrap/simple_form-bootstrap";
 
+
+// Jumbotron header
+.jumbotron p .btn-primary{
+    background: #00bfad !important;
+    border-color: #00bfad !important;
+}
+
 // Error Messages
 .error_message{
     margin-top:20px;
@@ -36,17 +43,26 @@ $theme-colors: ( "bootstrap": #563d7c, "simpleform": #00617f );
 }
 
 // Incono de home
-.fa-home{
+.fa-head-side-mask{
     color:#ffffff;
     font-size:20px;
 }
 
+.box-shadow i{
+    font-size: 200px;
+    margin:20px auto -25px;
+    color:#00bfad;
+}
+
+.card-body {
+    padding: 3rem;
+}
 
 // ---------------- Footer ------------------ //
 
 // Color del footer
 .page-footer{
-    background-color: #3e4551;
+    background-color: #00bfad;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -63,7 +79,6 @@ $theme-colors: ( "bootstrap": #563d7c, "simpleform": #00617f );
 
 // ---------------- Login ------------------ //
 
-body{background: #d8d8d8;}
 html,body{
     position: relative;
     height: 100%;
