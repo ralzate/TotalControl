@@ -15,9 +15,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  get 'print_records', to: 'records#print_records'
-  get 'print_people', to: 'people#print_people'
-  get 'print_users', to: 'users#print_users'
+  get 'print_records', to: 'reports#records_xls'
+  get 'print_people', to: 'reports#people_xls'
+  get 'print_users', to: 'reports#users_xls'
 
 
   get 'reportes', to: 'reports#index'

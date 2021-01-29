@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+    xmlns:o="urn:schemas-microsoft-com:office:office"
+    xmlns:x="urn:schemas-microsoft-com:office:excel"
+    xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+    xmlns:html="http://www.w3.org/TR/REC-html40">
+    <Worksheet ss:Name="Sheet1">
+        <Table>
+            <Row>
+                <Cell><Data ss:Type="String">Id:</Data></Cell>
+                <Cell><Data ss:Type="String">Nombre:</Data></Cell>
+                <Cell><Data ss:Type="String">Email:</Data></Cell>
+                <Cell><Data ss:Type="String">Rol:</Data></Cell>
+                <Cell><Data ss:Type="String">Creado en:</Data></Cell>
+                <Cell><Data ss:Type="String">Actualizado en:</Data></Cell>
+            </Row>
+        <% @results.each do |row| %>
+            <Row>
+                <Cell><Data ss:Type="String"><%= row.id %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= row.name %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= row.email %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= row.user_role %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= row.created_at %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= row.updated_at %></Data></Cell>
+            </Row>
+        <% end %>
+        </Table>
+    </Worksheet>
+</Workbook>

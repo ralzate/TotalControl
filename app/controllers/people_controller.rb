@@ -63,15 +63,7 @@ class PeopleController < ApplicationController
     end
   end
 
-  # Metodo que imprime en csv y xls
-  def print_people
-    @results2 = Person.all
-    respond_to do |format|
-      format.html
-      format.csv { send_data Person.to_csv }
-      format.xls 
-    end
-  end
+
 
 
   private

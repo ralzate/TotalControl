@@ -61,14 +61,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def print_users
-    @results = User.all
-        respond_to do |format|
-      format.html
-      format.csv { send_data User.to_csv }
-      format.xls 
-    end
-  end
+
 
   private
 

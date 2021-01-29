@@ -65,15 +65,6 @@ class RecordsController < ApplicationController
     end
   end
 
-
-  def print_records
-    @results3 = Record.all
-    respond_to do |format|
-      format.csv { send_data Record.to_csv }
-      format.xls 
-    end
-  end
-
   private
 
     def set_record

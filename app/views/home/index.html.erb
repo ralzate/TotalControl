@@ -1,4 +1,6 @@
 
+<% if user_signed_in? %>
 
-<%= render 'people/search', person: @person %>
+    <%= render 'people/search', person: @person %>
 
+<% end %>

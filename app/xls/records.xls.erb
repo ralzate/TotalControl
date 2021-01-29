@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+    xmlns:o="urn:schemas-microsoft-com:office:office"
+    xmlns:x="urn:schemas-microsoft-com:office:excel"
+    xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+    xmlns:html="http://www.w3.org/TR/REC-html40">
+    <Worksheet ss:Name="Sheet1">
+        <Table>
+            <Row>
+                <Cell><Data ss:Type="String">Id:</Data></Cell>
+                <Cell><Data ss:Type="String">Persona que registro:</Data></Cell>
+                <Cell><Data ss:Type="String">Temperatura de ingreso:</Data></Cell>
+                <Cell><Data ss:Type="String">Temperatura de salida:</Data></Cell>
+                <Cell><Data ss:Type="String">Creado en:</Data></Cell>
+                <Cell><Data ss:Type="String">Actualizado en:</Data></Cell>
+            </Row>
+        <% @results3.each do |row| %>
+            <Row>
+                <Cell><Data ss:Type="String"><%= row.id %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= row.entrance_temperature %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= row.departure_temperature %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= row.person.email %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= row.created_at %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= row.updated_at %></Data></Cell>
+            </Row>
+        <% end %>
+        </Table>
+    </Worksheet>
+</Workbook>

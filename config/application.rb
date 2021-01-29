@@ -13,6 +13,7 @@ module SimpleFormBootstrap
     config.load_defaults 6.1
     # añado la ruta de pdfs al path
     paths['app/views'] << 'app/pdfs'
+    paths['app/views'] << 'app/xls'
 
     # Configuration for the application, engines, and railties goes here.
     #
