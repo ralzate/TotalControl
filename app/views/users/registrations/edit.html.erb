@@ -1,35 +1,64 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="card mx-5 my-5 px-5 py-5">
+  <h1 class="mb-3">Usuario <%= @user.name %></h1>
+    <%= simple_form_for @user do |f| %>
+      
+      <% if f.error_notification %>
+        <div class="alert alert-warning" role="alert">
+          Por favor revisa
+        </div>
+      <% end %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+      <div class="form-row">
+        <div class="col-md-4 form-group">
+          <%= f.label :email, 'Email' %>
+          <%= f.input :email, 
+              required: true, 
+              autofocus: true, 
+              label: false,
+              input_html: { :id => 'usuario_email' } %>
+        </div>
+        <div class="col-md-4 form-group">
+          <%= f.label :name, 'Nombre' %>
+          <%= f.input :name, 
+              required: true , 
+              label: false,
+              input_html: { :id => 'usuario_nombre' } %>
+        </div>
+        <div class="col-md-4 form-group">
+          <%= f.label :user_role, 'Rol' %>
+          <%= f.select :user_role, 
+              options_for_select([ "SuperAdmin", "Admin" ]), 
+              {}, { class: "form form-group form-control" }  %>
+        </div>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+      <div class="form-row">
+        <div class="col-md-4 form-group">
+          <%= f.label :password, 'Nueva Clave' %>
+          <%= f.input :password,
+              hint: "leave it blank if you don't want to change it",
+              required: false,
+              input_html: { autocomplete: "new-password" }, 
+              label: false %>
+        </div>
+        <div class="col-md-4 form-group">
+          <%= f.label :password_confirmation, 'Confirmar Clave' %>
+          <%= f.input :password_confirmation,
+              required: false,
+              input_html: { autocomplete: "new-password" }, 
+              label: false %>
+        </div>
+        <div class="col-md-4 form-group">
+          <%= f.label :current_password, 'Clave Actual' %>
+          <%= f.input :current_password,
+              hint: "we need your current password to confirm your changes",
+              required: true,
+              error: 'La contraseña no coincide',
+              input_html: { autocomplete: "current-password" }, label: false %>
+        </div>
+      </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+    <%= f.button :submit, 'Guardar', :id => "usuario_guardar" %>
+    <%= link_to 'Atras', users_path, :class => "btn btn-info" %>
+  <% end %>
+</div>

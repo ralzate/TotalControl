@@ -24,13 +24,13 @@ class User < ApplicationRecord
   # Validaciones
   validates_presence_of :name
   validates_format_of :email,:with => Devise::email_regexp
-  validates :password, 
-            presence: true, 
-            length: {  minimum: 8, maximum: 20 }
-  validates :password_confirmation, 
-            presence: true, 
-            length: {  minimum: 8, maximum: 20 }
-  validates_presence_of :user_role
+  # validates :password, 
+  #           presence: true, 
+  #           length: {  minimum: 8, maximum: 20 }
+  # validates :password_confirmation, 
+  #           presence: true, 
+  #           length: {  minimum: 8, maximum: 20 }
+  # validates_presence_of :user_role
 
 
   # Buscador

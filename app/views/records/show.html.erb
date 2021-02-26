@@ -1,41 +1,41 @@
 
 
 <div class="container my-4">
-   <div class="row">
-      <div class="col-lg-12 col-md-12 mb-12">
-         <div class="card card-cascade wider">
-            <div class="card-body card-body-cascade text-center">
-               <div class="alert alert-primary" role="alert">
-                  <br/>
-                  <h2 class="card-title"><strong>Registro de <%= @record.person.email %> <i class="fas fa-paste"></i> </strong></h2>
-                  <br/>
-               </div>
-               <div class="container">
-               <div class="row">
-                  <div class="col-sm">
-                  <div class="alert alert-secondary" role="alert">
-                     <h5><b>Id:</b></h5>
-                     <%= @record.id %>
-                  </div>        
-                  </div>
-                  <div class="col-sm">
-                  <div class="alert alert-secondary" role="alert">
-                     <h5><b>Temperatura Ingreso:</b></h5>
-                     <%= @record.entrance_temperature %>
-                  </div>        
-                  </div>
-                  <div class="col-sm">
-                  <div class="alert alert-secondary" role="alert">
-                     <h5><b>Temperatura Egreso:</b></h5>
-                     <%= @record.departure_temperature %>
-                  </div>        
-                  </div>
-               </div>
-               <%= link_to 'Editar',edit_person_record_path(@person,@record), :class => 'btn btn-success' %>
-               <%= link_to 'Atras', person_records_path(@person), :class => 'btn btn-info' %>
-               </div>    
-            </div>
-         </div>
-      </div>
-   </div>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 mb-12">
+			<div class="card card-cascade wider">
+				<div class="card-body card-body-cascade text-center">
+					<div class="alert alert-primary" role="alert">
+						<br/>
+							<h2 class="card-title"><strong>Registro de <%= @record.person.email %> <i class="fas fa-paste"></i> </strong></h2>
+						<br/>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-sm">
+								<div class="alert alert-secondary" role="alert">
+									<h5><b>Id:</b></h5>
+									<%= @record.id %>
+								</div>        
+							</div>
+							<div class="col-sm">
+								<div class="alert alert-secondary" role="alert">
+									<h5><b>Temperatura Ingreso:</b></h5>
+									<%= @record.entrance_temperature %>
+								</div>        
+							</div>
+							<div class="col-sm">
+								<div class="alert alert-secondary" role="alert">
+									<h5><b>Temperatura Egreso:</b></h5>
+									<%= @record.departure_temperature %>
+								</div>        
+							</div>
+						</div>
+						<%= link_to 'Editar',edit_person_record_path(@person,@record), :class => 'btn btn-success' %>
+						<%= link_to 'Atras', person_records_path(@person), :class => 'btn btn-info' %>
+					</div>    
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

@@ -3,21 +3,29 @@
 <div class="card mx-5 my-5 px-5 py-5">
   <h1 class="mb-3">Registro <%= @record.id %> de <%= @person.name %></h1>
   <%= simple_form_for [@person,@record], :html => { :class => 'form-horizontal' } do |f| %>
+
     <% if f.error_notification %>
-    <div class="alert alert-warning" role="alert">
-      Por favor revisa
-    </div>
+      <div class="alert alert-warning" role="alert">
+        Por favor revisa
+      </div>
     <% end %>
+
     <div class="form-row mb-0">
       <div class="col-md-6 form-group">
         <%= f.label :entrance_temperature, 'Temperatura de ingreso' %>
-        <%= f.input :entrance_temperature, error: 'La temperatura no es valida', required: true, input_html: { min: '0', step: 'any' }, label: false %>
-        <div class="messages"></div>
+        <%= f.input :entrance_temperature,
+            error: 'La temperatura no es valida', 
+            required: true, 
+            input_html: { min: '0', step: 'any', :id => 'registro_temperatura_ingreso' }, 
+            label: false %>
       </div>
       <div class="col-md-6 form-group">
         <%= f.label :departure_temperature, 'Temperatura de salida' %>
-        <%= f.input :departure_temperature, error: 'La temperatura no es valida', required: true, label: false %>
-        <div class="messages"></div>
+        <%= f.input :departure_temperature, 
+            error: 'La temperatura no es valida', 
+            required: true, 
+            input_html: { min: '0', step: 'any', :id => 'registro_temperatura_salida' },
+            label: false %>
       </div>
       <div class="col-md-4 form-group">
         <div class="input-group">
@@ -27,7 +35,7 @@
       </div>
     </div>
 
-    <%= f.button :submit, 'Guardar' %>
+    <%= f.button :submit, 'Guardar', :id => "registro_guardar" %>
     <%= link_to 'Atras', person_records_path(@person), :class => "btn btn-info" %>
 
   <% end %>

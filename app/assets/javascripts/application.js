@@ -61,7 +61,7 @@ $( ".user_email" ).removeClass()
 $(document).ready(function() {
     var sub = $('.entrada').each(function() {  
     var numero = ($(this).text());
-    if(numero>60){
+    if(numero>38){
         $(this).css('background-color', '#FF4000');
 
         }      
@@ -77,6 +77,24 @@ $(document).ready(function() {
 
 // Cambia a disable si algun campo esta vacio en el form de personas
 $(document).ready(function() {
+
+    // Inputs para el modelo de usuario
+    var $inputs = $('#usuario_email'),
+        $inputs = $('#usuario_nombre'),
+        $submit = $("#usuario_guardar");
+
+    function checkEmpty() {
+        return $inputs.filter(function() {
+            return !$.trim(this.value);
+        }).length === 0;
+    }
+
+    $inputs.on('blur', function() {
+        $submit.prop("disabled", !checkEmpty());
+    }).blur();
+
+
+    // Inputs del modelo de peronas
     var $inputs = $('#persona_nombre'),
         $inputs = $('#persona_apellido'),
         $inputs = $('#persona_telefono'),
@@ -93,4 +111,21 @@ $(document).ready(function() {
     $inputs.on('blur', function() {
         $submit.prop("disabled", !checkEmpty());
     }).blur();
+
+
+    // Inputs del modelo de registros
+    var $inputs = $('#registro_temperatura_ingreso'),
+    $inputs = $('#registro_temperatura_salida'),
+    $submit = $("#registro_guardar");
+
+    function checkEmpty() {
+        return $inputs.filter(function() {
+            return !$.trim(this.value);
+        }).length === 0;
+    }
+
+    $inputs.on('blur', function() {
+        $submit.prop("disabled", !checkEmpty());
+    }).blur();
+
 });

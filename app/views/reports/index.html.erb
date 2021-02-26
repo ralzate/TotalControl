@@ -62,7 +62,7 @@
                <div class="row">
                   <div class="col-sm">
                   <div class="alert alert-secondary" role="alert">
-                  <%= pie_chart Record.group_by_month(:created_at).count  %>
+                  <%= column_chart Record.group_by_month(:created_at, format: "%a").count %>
                   </div>        
                   </div>
                </div>
@@ -104,7 +104,7 @@
                <div class="row">
                   <div class="col-sm">
                   <div class="alert alert-secondary" role="alert">
-                  <%= pie_chart Person.group_by_month(:created_at).count  %>
+                  <%= column_chart Person.group_by_month(:created_at, format: "%a").count %>
                   </div>        
                   </div>
                </div>
@@ -145,7 +145,7 @@
                <div class="row">
                   <div class="col-sm">
                   <div class="alert alert-secondary" role="alert">
-                  <%= pie_chart User.group_by_month(:created_at).count  %>
+                  <%= column_chart User.group_by_month(:created_at, format: "%a").count %>
                   </div>        
                   </div>
                </div>
@@ -171,7 +171,7 @@
                <div class="row">
                   <div class="col-sm">
                   <div class="alert alert-secondary" role="alert">
-                  <%= pie_chart Record.group(:entrance_temperature).where("entrance_temperature > 38").count %>
+                  <%= pie_chart Record.group(:entrance_temperature).where("entrance_temperature > 38 or departure_temperature > 38").count %>
                   </div>        
                   </div>
                </div>
